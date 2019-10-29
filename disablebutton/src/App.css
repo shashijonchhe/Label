@@ -1,0 +1,66 @@
+.form-control-input{
+  border:1px solid #dedede!important;
+}
+.row{
+  margin-bottom: 10px;
+}
+.left-section{
+  margin-left: 62px;
+}
+.left-section-footer {
+  margin-left:177px;
+}
+.left-section-footer .btn{
+  margin-left:20px;
+}
+
+.sender-address, .receiver-address, .weight, .shipping-option{
+  max-width:400px;
+  margin:10px auto;
+}
+
+.sender-address input, .receiver-address input, .weight input, .shipping-option input{
+  padding-left:5px;
+  border-radius: 4px;
+}
+
+.shipping-option > div {
+  align-items: center;
+}
+
+.sender-address h3, .receiver-address h3 {
+  margin-left: 15px;
+}
+
+.shipping-option .col-form-label{
+    padding:0;
+}
+
+.Confirm{
+  max-width: 400px;
+  margin: 10px auto;
+  border: 1px solid #999;
+  padding: 0 12px 12px;
+  border-radius: 4px;
+}
+
+.Confirm .head-line {
+  margin-top: 12px;
+  display: block;
+}
+
+.Confirm span {
+  width: 110px;
+  display: inline-block;
+}
+
+.action-handlers{
+  max-width:400px;
+  margin:auto;
+  text-align: center;
+}
+
+.action-handlers button{
+    margin:0 10px;
+    padding: 0 15px;
+}
