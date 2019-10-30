@@ -7,9 +7,15 @@ class ShippingLabelMaker extends Component {
         this.senderNameChangeHandler = this.senderNameChangeHandler.bind(this);
         this.senderStreetChangeHandler = this.senderStreetChangeHandler.bind(this);
         this.senderZipChangeHandler = this.senderZipChangeHandler.bind(this);
+        this.senderCityChangeHandler = this.senderCityChangeHandler.bind(this);
+        this.senderStateChangeHandler = this.senderStateChangeHandler.bind(this);
+
         this.receiverNameChangeHandler = this.receiverNameChangeHandler.bind(this);
         this.receiverStreetChangeHandler = this.receiverStreetChangeHandler.bind(this);
         this.receiverZipChangeHandler = this.receiverZipChangeHandler.bind(this);
+        this.receiverCityChangeHandler = this.receiverCityChangeHandler.bind(this);
+        this.receiverStateChangeHandler = this.receiverStateChangeHandler.bind(this);
+
         this.weightChangeHandler = this.weightChangeHandler.bind(this);
         this.shippingOptionChangeHandler = this.shippingOptionChangeHandler.bind(this);
         this.state = {
@@ -17,6 +23,7 @@ class ShippingLabelMaker extends Component {
             initStep: 1,
             lastStep: 5,
             currentStep: 1,
+
             senderAddress: {
                 name: 'John smith',
                 street: '131 DartMouth st',
@@ -27,8 +34,8 @@ class ShippingLabelMaker extends Component {
             receiverAddress: {
                 name: 'Linda Jackson',
                 street: '40 Fulton st',
-                city: 'Boston',
-                state: 'MA',
+                city: 'New York',
+                state: 'NY',
                 zip: '10038'
             },
             weight: 0,
@@ -51,23 +58,46 @@ class ShippingLabelMaker extends Component {
     }
     senderZipChangeHandler(zip) {
         const senderData = { ...this.state.senderAddress };
-        senderData.street = zip;
+        senderData.zip = zip;
         this.setState({ senderAddress: senderData });
     }
-    receiverNameChangeHandler(name) {
+    senderCityChangeHandler(city) {
+       
+        const senderData = { ...this.state.senderAddress };
+        senderData.city = city;
+        this.setState({ senderAddress: senderData });
+    }
+    senderStateChangeHandler(state) {
+        const senderData = { ...this.state.senderAddress };
+        senderData.state = state;
+        this.setState({ senderAddress: senderData });
+    }
+
+
+    receiverNameChangeHandler(value) {
         const receiverData = { ...this.state.receiverAddress };
-        receiverData.street = name;
-        this.setState({ senderAddress: receiverData });
+        receiverData.name = value;
+        this.setState({ receiverAddress: receiverData });
     }
     receiverStreetChangeHandler(street) {
         const receiverData = { ...this.state.receiverAddress };
         receiverData.street = street;
-        this.setState({ senderAddress: receiverData });
+        this.setState({ receiverAddress: receiverData });
     }
     receiverZipChangeHandler(zip) {
         const receiverData = { ...this.state.receiverAddress };
         receiverData.zip = zip;
-        this.setState({ senderAddress: receiverData });
+        this.setState({ receiverAddress: receiverData });
+    };
+    receiverCityChangeHandler(city) {
+        const receiverData = { ...this.state.receiverAddress };
+        receiverData.city = city;
+        this.setState({ receiverAddress: receiverData });
+    };
+    receiverStateChangeHandler(state) {
+        const receiverData = { ...this.state.receiverAddress };
+        receiverData.state= state;
+        this.setState({ receiverAddress: receiverData });
     };
     weightChangeHandler(value) {
         this.setState( {
@@ -77,6 +107,7 @@ class ShippingLabelMaker extends Component {
     shippingOptionChangeHandler(value) {
         this.setState({ shippingOption: value }, () => this.shippingCost());
     };
+
     nextHandler() {
          const { weight, shippingOption, currentStep } = this.state;
          if( (currentStep === 3 && !weight > 0) || (currentStep === 4 && !shippingOption > 0)) {
@@ -121,12 +152,19 @@ class ShippingLabelMaker extends Component {
                     weight={this.state.weight}
                     shippingOption={this.state.shippingOption}
                     state={this.state}
+
                     senderNameChangeHandler={this.senderNameChangeHandler}
                     senderStreetChangeHandler={this.senderStreetChangeHandler}
                     senderZipChangeHandler={this.senderZipChangeHandler}
+                    senderCityChangeHandler={this.senderCityChangeHandler}
+                    senderStateChangeHandler = {this.senderStateChangeHandler}
+
                     receiverNameChangeHandler={this.receiverNameChangeHandler}
                     receiverStreetChangeHandler={this.receiverStreetChangeHandler}
                     receiverZipChangeHandler={this.receiverZipChangeHandler}
+                    receiverCityChangeHandler={this.receiverCityChangeHandler}
+                    receiverStateChangeHandler={this.receiverStateChangeHandler}
+
                     weightChangeHandler={this.weightChangeHandler}
                     shippingOptionChangeHandler={this.shippingOptionChangeHandler}
                 />

@@ -5,7 +5,7 @@ class ShippingLabel extends Component {
         return (
             <div className="shipping-label">
                 ShippingLabel
-      </div>
+            </div>
         );
     }
 }

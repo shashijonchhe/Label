@@ -14,6 +14,8 @@ class Steps extends Component {
                     senderNameChangeHandler={this.props.senderNameChangeHandler}
                     senderStreetChangeHandler={this.props.senderStreetChangeHandler}
                     senderZipChangeHandler={this.props.senderZipChangeHandler}
+                    senderCityChangeHandler={this.props.senderCityChangeHandler}
+                    senderStateChangeHandler={this.props.senderStateChangeHandler}
                 />;
             case 2:
                 return <ReceiverAddress
@@ -21,6 +23,8 @@ class Steps extends Component {
                     receiverNameChangeHandler={this.props.receiverNameChangeHandler}
                     receiverStreetChangeHandler={this.props.receiverStreetChangeHandler}
                     receiverZipChangeHandler={this.props.receiverZipChangeHandler}
+                    receiverCityChangeHandler={this.props.receiverCityChangeHandler}
+                    receiverStateChangeHandler={this.props.receiverStateChangeHandler}
                 />;
             case 3:
                 return <GetWeight weight={this.props.weight}

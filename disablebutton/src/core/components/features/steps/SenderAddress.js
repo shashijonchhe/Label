@@ -6,6 +6,8 @@ class SenderAddress extends Component {
         this.senderNameChangeHandler = this.senderNameChangeHandler.bind(this);
         this.senderStreetChangeHandler = this.senderStreetChangeHandler.bind(this);
         this.senderZipChangeHandler = this.senderZipChangeHandler.bind(this);
+        this.senderCityChangeHandler = this.senderCityChangeHandler.bind(this);
+        this.senderStateChangeHandler = this.senderStateChangeHandler.bind(this);
     }
     senderNameChangeHandler(event) {
         this.props.senderNameChangeHandler(event.target.value);
@@ -14,7 +16,14 @@ class SenderAddress extends Component {
         this.props.senderStreetChangeHandler(event.target.value);
     }
     senderZipChangeHandler(event) {
+       
         this.props.senderZipChangeHandler(event.target.value);
+    }
+    senderCityChangeHandler(event){
+        this.props.senderCityChangeHandler(event.target.value);
+    }
+    senderStateChangeHandler(event){
+        this.props.senderStateChangeHandler(event.target.value);
     }
     render() {
         const { senderAddress } = this.props;
@@ -39,7 +48,25 @@ class SenderAddress extends Component {
                                 value={senderAddress.street} onChange={this.senderStreetChangeHandler} />
                         </div>
                     </div>
+                    
+                    <div className="col-sm-12 row">
+                        <label className="col-sm-2 col-form-label">City:</label>
+                        <div className="col-sm-10">
+                            <input type='text' name='city'
+                                className="form-control-plaintext form-control-input"
+                                value={senderAddress.city} onChange={this.senderCityChangeHandler} />
+                                   
+                                </div>
+                    </div>
 
+                    <div className="col-sm-12 row">
+                        <label className="col-sm-2 col-form-label">State:</label>
+                        <div className="col-sm-10">
+                            <input type='text' name='state'
+                                className="form-control-plaintext form-control-input"
+                                value={senderAddress.state} onChange={this.senderStateChangeHandler} />
+                        </div>
+                    </div>
 
                     {/* <div className='city'>
                 <input type='text' name='city' value={this.state.city} onChange={this.cityChangeHandler}/>
